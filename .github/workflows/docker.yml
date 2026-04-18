@@ -32,5 +32,12 @@ jobs:
     - name: Build Docker image
       run: docker build -t bhanuasati/flask-app .
 
+
+    - name: Build Docker image
+      run: docker build -t ${{ secrets.DOCKER_USERNAME }}/flask-app:latest .
+
     - name: Push Docker image
-      run: docker push ${{ secrets.DOCKER_USERNAME }}/flask-app
+      run: docker push ${{ secrets.DOCKER_USERNAME }}/flask-app:latest
+
+    # - name: Push Docker image
+    #   run: docker push ${{ secrets.DOCKER_USERNAME }}/flask-app
